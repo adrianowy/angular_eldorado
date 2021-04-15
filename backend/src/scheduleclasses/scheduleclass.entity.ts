@@ -2,6 +2,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
@@ -13,10 +14,10 @@ export class ScheduleClass {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @ManyToOne(type => User, schedule_class => ScheduleClass)
+    @ManyToOne(() => User, (user) => user.id)
     user: User;
 
-    @ManyToOne(type => Teacher, schedule_class => ScheduleClass)
+    @ManyToOne(() => Teacher, (teacher) => teacher.id)
     teacher: Teacher;
 
     @Column({type: 'timestamp'})

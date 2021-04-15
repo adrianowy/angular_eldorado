@@ -15,6 +15,11 @@ export class ScheduleclassController {
     getById(@Param('id') id: string){
         return this.service.getById(id);
     }
+
+    @Get('/user/:user')
+    getByUser(@Param('user') user: string){
+        return this.service.getByUser(user);
+    }
     
     @Post()
     create(@Body() body){

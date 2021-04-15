@@ -12,16 +12,19 @@ export class ScheduleclassService {
     ){}
 
     getAll(){
-        return this.scheduleclassRepo.find();
+        return this.scheduleclassRepo.find({ relations: ["teacher"] });
     }
 
     getById(id: string){
         return this.scheduleclassRepo.findOne(id);
     }
-/*
+
     getByUser(user: string){
-        return this.scheduleclassRepo.findOne({user});
-    }*/
+        return this.scheduleclassRepo.find({
+            where: {user: user},
+            relations: ["teacher"]
+        });
+    }
 
     create(scheduleclass: ScheduleClass){
         return this.scheduleclassRepo.save(scheduleclass);

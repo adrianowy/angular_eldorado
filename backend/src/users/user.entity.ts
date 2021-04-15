@@ -21,7 +21,7 @@ export class User {
   @Column()
   password: string;
 
-  @OneToMany(type => ScheduleClass, user => User)
+  @OneToMany(() => ScheduleClass, (scheduleclass) => scheduleclass.id)
   schedule: ScheduleClass[];
 
   @CreateDateColumn({ type: 'timestamp' })

@@ -15,7 +15,7 @@ export class Teacher {
   @Column()
   name: string;
 
-  @OneToMany(type => ScheduleClass, teacher => Teacher)
+  @OneToMany(() => ScheduleClass, (scheduleclass) => scheduleclass.id)
   schedule: ScheduleClass[];
 
   @CreateDateColumn({ type: 'timestamp' })
