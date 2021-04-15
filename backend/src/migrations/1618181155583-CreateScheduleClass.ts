@@ -15,20 +15,20 @@ export class CreateScheduleClass1618181155583 implements MigrationInterface {
                         generationStrategy: 'increment'
                     },
                     {
-                        name: 'user',
-                        type: 'int',
+                        name: 'userId',
+                        type: 'int'
                     },
                     {
-                        name: 'teacher',
-                        type: 'int',
+                        name: 'teacherId',
+                        type: 'int'
                     },
                     {
                         name: 'start',
-                        type: 'timestamp',
+                        type: 'timestamp'
                     },
                     {
                         name: 'end',
-                        type: 'timestamp',
+                        type: 'timestamp'
                     },
                     {
                         name: 'created_at',
