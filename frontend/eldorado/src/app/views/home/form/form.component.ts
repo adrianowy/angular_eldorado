@@ -33,8 +33,6 @@ export class FormComponent implements OnInit {
 
   teachers: Teachers[] = [];
 
-  // @Output() eventClicked = new EventEmitter<Event>();
-
   constructor(
     private teacherService: TeachersService,
     private scheduleClass: ScheduleclassService
@@ -51,7 +49,7 @@ export class FormComponent implements OnInit {
           result.end = this.auxDate+" "+result.end;
 
       this.scheduleClass.postClasses(result).subscribe(data => {
-        console.log(data);
+        this.scheduleClass.updateTable.emit(true);
       });
 
     } catch (e){
@@ -64,9 +62,5 @@ export class FormComponent implements OnInit {
       this.teachers = data;
     })
   }
-
-/*   onClick(event: Event): void {
-    this.eventClicked.emit(event);
-  } */
 
 }

@@ -1,4 +1,5 @@
 import { CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY_PROVIDER_FACTORY } from '@angular/cdk/overlay/overlay-directives';
+import { ThrowStmt } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import { ScheduleclassService } from 'src/app/shared/scheduleclass/scheduleclass.service';
 
@@ -20,15 +21,20 @@ export class ClassListComponent implements OnInit {
   displayedColumns: string[] = ['teacher', 'date', 'start', 'end'];
   dataSource: Classes[] = [];
 
-  // @Input() event: Event | undefined;
-
   constructor(
     private scheduleClass: ScheduleclassService
   ) { }
 
   ngOnInit(): void {
     this.getShedule();
-    // console.log(this.event);
+    
+    this.scheduleClass.updateTable.subscribe(
+      update => {
+        console.log('update');
+        this.getShedule();
+      }
+    )
+
   }
 
   getShedule(){
