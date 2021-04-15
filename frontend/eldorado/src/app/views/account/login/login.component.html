@@ -1,0 +1,17 @@
+<h2 class="text-center">Entrar</h2>
+
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+    <mat-form-field appearance="outline" class="form-field">
+        <mat-label>E-mail</mat-label>
+        <input matInput placeholder="pat@example.com" [formControl]="email" [(ngModel)]="login.email" required>
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" [formControl]="password" [(ngModel)]="login.password" required>
+    </mat-form-field>
+
+    <button type="submit" [disabled]="form.form.invalid" mat-raised-button color="primary">Entrar</button>
+    <button type="button" [routerLink]="['/create-account']" mat-raised-button>Criar Conta</button>
+</form>
