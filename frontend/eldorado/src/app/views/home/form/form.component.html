@@ -1,0 +1,31 @@
+<h4>Agende sua aula particular!</h4>
+
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+
+    <mat-form-field appearance="outline">
+        <mat-label>Professor</mat-label>
+        <mat-select [(ngModel)]="scheduleclass.teacher" [formControl]="teacherForm" required>
+          <mat-option *ngFor="let teacher of teachers" [value]="teacher.id">
+            {{teacher.name}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Date</mat-label>
+        <input matInput type="date" [formControl]="dateForm" [(ngModel)]="auxDate" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Início</mat-label>
+        <input matInput type="time" [formControl]="startForm" [(ngModel)]="scheduleclass.start" autocomplete="off" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Término</mat-label>
+        <input matInput type="time" [formControl]="endForm" [(ngModel)]="scheduleclass.end" autocomplete="off" required>
+    </mat-form-field>
+
+    <button type="submit" mat-raised-button color="primary">Salvar</button>
+
+</form>
