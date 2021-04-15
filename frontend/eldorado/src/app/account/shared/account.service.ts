@@ -17,17 +17,11 @@ export class AccountService {
       return true;
     }
     return false;
-
-    /* return new Promise((resolve) => {
-      window.localStorage.setItem('token','meu-token');
-      resolve(true);
-    }); */
   }
 
-  createAccount(account: any){
-    return new Promise((resolve) => {
-      resolve(true);
-    });
+  async createAccount(account: any){
+    const result = await this.http.post<any>(`${environment.api}/users`, account).toPromise();
+    return result;
   }
 
 }

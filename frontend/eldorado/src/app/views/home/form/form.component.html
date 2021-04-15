@@ -1,0 +1,27 @@
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+    
+    <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Professor</mat-label>
+        <input matInput [(ngModel)]="scheduleclass.teacher" [formControl]="name" autocomplete="off" required>
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill">
+        <mat-label>Dates</mat-label>
+        <input matInput [matDatepicker]="picker" [formControl]="date" [(ngModel)]="scheduleclass.start">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Início</mat-label>
+        <input matInput type="time" [(ngModel)]="scheduleclass.start" [formControl]="start" autocomplete="off" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Término</mat-label>
+        <input matInput type="time" [(ngModel)]="scheduleclass.end" [formControl]="end" autocomplete="off" required>
+    </mat-form-field>
+
+    <button type="submit" mat-raised-button color="primary">Salvar</button>
+
+</form>

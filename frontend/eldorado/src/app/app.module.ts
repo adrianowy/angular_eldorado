@@ -18,8 +18,10 @@ import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 import { AuthenticationComponent } from './views/authentication/authentication.component';
+import { FormComponent } from './views/home/form/form.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { AuthenticationComponent } from './views/authentication/authentication.c
     ClassListComponent,
     LoginComponent,
     AuthenticationComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import { AuthenticationComponent } from './views/authentication/authentication.c
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule 
+    HttpClientModule,
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
