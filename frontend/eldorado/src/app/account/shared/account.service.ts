@@ -14,6 +14,7 @@ export class AccountService {
     const result = await this.http.post<any>(`${environment.api}/auth/login`, user).toPromise();
     if(result && result.access_token){
       window.localStorage.setItem('token',result.access_token);
+      window.localStorage.setItem('tokenid',result.acesss_token_id);
       return true;
     }
     return false;
